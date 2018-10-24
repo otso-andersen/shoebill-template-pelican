@@ -34,7 +34,7 @@ AUTHOR_FEED_RSS = None
 
 
 # Blogroll
-LINKS = (('my GitHub','https://github.com/otso-andersen/website'),)
+LINKS = (('my GitHub','https://github.com/otso-andersen/website-template-pelican'),)
 
 
 PLUGINS = ['encrypt_content']
