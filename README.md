@@ -44,6 +44,12 @@ pelican content
 
 This create a folder `output` with the generated website. 
 
+Alternatively, you can use the `make` command:
+
+```bashrc
+make html
+```
+
 ### 5. Preview your site:
 
 Open a new terminal session and run the following commands to switch to your output directory and launch Pelican’s web server:
@@ -53,6 +59,17 @@ cd ~/path_to_my_folder/website/output
 python -m pelican.server
 ```
 Preview your site by navigating to http://localhost:8000/ in your browser.
+
+If you’d prefer to have Pelican automatically regenerate your site every time a change is detected (which is handy when testing locally), the best way is to use the following `make` command instead:
+
+```bashrc
+make devserver
+```
+The above command will simultaneously run Pelican in regeneration mode as well as serve the output at http://localhost:8000. Once you are done testing your changes, you should stop the development server via (after `ctrl+C`):
+```bashrc
+./develop_server.sh stop
+```
+
 
 ## II) How to write content
 
@@ -147,7 +164,7 @@ THEME_CATEGORIES = {
     'Category Name': {
         'description': 'this description will appear at the bottom of every article page from that category',
         'logo': SITEURL + '/category_1/logo.png',
-        'thumbnail': '../category/picture.jpg',
+        'thumbnail': SITEURL + '/category/picture.jpg',
     }
 }
 ```
@@ -175,7 +192,15 @@ If you want to change the appearance of your website, this is where to go.
 
 For more information, see the Pelican documentation: [creating themes](http://docs.getpelican.com/en/stable/themes.html).
 
-## IV) Publish your website on a GitHub page
+## IV) Publish your website
+
+### 1. publishconf.py
+
+```python
+
+```
+
+### 2. Publish on GitHub Pages
 
 For more information on this process, see [how to publish on GitHub](http://docs.getpelican.com/en/stable/tips.html#publishing-to-github) and [GitHub Pages](https://pages.github.com/).
 
@@ -195,22 +220,29 @@ Go to [GitHub Pages](https://pages.github.com/ and follow the procedure to creat
 Then, for a User page, do:
 
 ```bash
-pelican content
+make publish
 ghp-import output
 git remote add origin git@github.com:username/username.github.io.git
-git push -f origin gh-pages:master
+git push origin gh-pages:master
 ```
 
 Or for a Project page, use:
 
 ```bash
-pelican content
+make publish
 ghp-import output
 git remote add origin git@github.com:username/project.git
 git push origin gh-pages
 ```
 
 This only publishes the generated output folder of your website. In particular, this ensures that all your password protected articles are safe, even if hosted on a public repository (the generated content is hashed).
+
+If you want, you can create an alias in `.bashrc` to do this process more efficiently:
+
+```
+alias generate="pelican content -o output -s pelicanconf.py"
+alias publish="make publish && ghp-import output && git push origin gh-pages:master"
+```
 
 
 
