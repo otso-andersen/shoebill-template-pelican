@@ -8,7 +8,7 @@ CURRENTYEAR = date.today().year
 AUTHOR = u'Jean Dupont'
 SITENAME = u'Pelican Website'
 SITESUBTITLE = u'To see a World in a Grain of Sand <br>And a Heaven in a Wild Flower, <br>Hold Infinity in the palm of your hand <br>And Eternity in an hour. <br><br>&mdash; William Blake'
-SITEURL = 'https://otso-andersen.github.io/website-template-pelican'
+SITEURL = ''
 
 
 PATH = 'content'

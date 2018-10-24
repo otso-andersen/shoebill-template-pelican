@@ -77,14 +77,15 @@ div.main-container {
     text-align: left;
     display: flex;
     flex-direction: column;
-  }
+    margin-left: auto;
+    margin-right: auto; }
   div.main-container div.post div.post-border {
     display: flex;
     flex-direction: column;
     box-shadow: rgba(0, 0, 0, 0.04) 0px 1px 4px 0px;
     box-sizing: border-box;
     border-radius: 3px;
-    border: 1px solid rgba(0, 0, 0, 0.09);
+    border: 1px solid #7776;
     padding: 20px;
     margin: 0.3em;
     height: 100%; }
@@ -785,7 +786,7 @@ div.pagination {
 
 
 .site-subtitle {
-  color: rgba(0, 0, 0, 0.3);
+  color: #777;
   font-size: 14px;
 }
 .translate_btn {
