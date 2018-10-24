@@ -223,7 +223,7 @@ Then, for a User page, do:
 make publish
 ghp-import output
 git remote add origin git@github.com:username/username.github.io.git
-git push origin gh-pages:master
+git push -f origin gh-pages:master
 ```
 
 Or for a Project page, use:
@@ -241,7 +241,8 @@ If you want, you can create an alias in `.bashrc` to do this process more effici
 
 ```
 alias generate="pelican content -o output -s pelicanconf.py"
-alias publish="make publish && ghp-import output && git push origin gh-pages:master"
+alias publish-project="make publish && ghp-import output && git push origin gh-pages"
+alias publish="make publish && ghp-import output && git push -f origin gh-pages:master"
 ```
 
 
