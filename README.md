@@ -1,7 +1,7 @@
 # Template Static Website
 This is a template website using [Pelican](http://docs.getpelican.com/en/stable/index.html). You can get it working, make it your own and publish it in less than an hour.
 
-See the demo [here](https://otso-andersen.github.io/website-template-pelican/).
+See the demo [here](https://otso-andersen.github.io/website-template-pelican/) (password to test the private page is `1234`).
 
 ## I) How to install 
 
