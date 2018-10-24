@@ -1,0 +1,7 @@
+{% macro translations_for(article) %}
+{% if article.translations %}
+    {% for translation in article.translations %}
+        <a class="translate_btn" href="{{ SITEURL }}/{{ translation.url }}">Read in <span style="text-transform:uppercase;">{{ translation.lang }}</span></a>
+    {% endfor %}
+{% endif %}
+{% endmacro %}

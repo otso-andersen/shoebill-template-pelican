@@ -1,0 +1,25 @@
+{% for article in articles_page.object_list %}
+<div class="pure-u-1 pure-u-md-1-2 pure-u-lg-1-3 post">
+    <div class="post-border">
+        <div class="post-meta pure-g">
+            {% if article.category|string in THEME_CATEGORIES and THEME_CATEGORIES.get(article.category|string).logo %}
+            <div class="pure-u">
+                <img src="{{ THEME_CATEGORIES.get(article.category|string).logo }}" class="post-avatar" alt="{{ article.category|striptags }}">
+            </div>
+            {% endif %}
+            {% include "includes/post_metadata.html" %}
+        </div>
+        
+        <h2><a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2>
+        <div class="post-content">
+            {{ article.summary }}
+        </div>
+        <div class="post-footer">
+            <a href="{{ SITEURL }}/{{ article.url }}">Read more</a>
+            {% if article.translations %} / {% endif %}
+            {% import 'translations.html' as translations with context %}
+            {{ translations.translations_for(article) }}
+        </div>
+    </div>
+</div>
+{% endfor %}
