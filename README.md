@@ -296,7 +296,13 @@ alias publish-project="make publish && ghp-import output && git push origin gh-p
 alias publish="make publish && ghp-import output && git push -f origin gh-pages:master"
 ```
 
+## Notes
 
+The theme is a customized fork from [Medius](https://github.com/onur/medius) (MIT license).
+
+## License
+
+Uses the MIT license.
 
 
 
