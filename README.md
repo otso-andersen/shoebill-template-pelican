@@ -192,17 +192,68 @@ If you want to change the appearance of your website, this is where to go.
 
 For more information, see the Pelican documentation: [creating themes](http://docs.getpelican.com/en/stable/themes.html).
 
-## IV) Publish your website
+## IV) Publish your website on GitHub Pages
+
+For more information on this process, see [how to publish on GitHub](http://docs.getpelican.com/en/stable/tips.html#publishing-to-github) and [GitHub Pages](https://pages.github.com/).
 
 ### 1. publishconf.py
 
+* You have two files for your settings: 
+    * `pelicanconf.py`: only for the development process.
+    * `publishconf.py`: only when you are ready to deploy.
+    
+* You need to enter your URL in publishconf.py:
 ```python
+SITEURL = 'https://username.github.io'
+```
+if this is for a User Page.  
+Or
+```python
+SITEURL = 'https://username.github.io/projectname'
+```
+if this is for a Project Page.
 
+* Copy also your special theme settings from `pelicanconf.py` to `publishconf.py`:
+```python
+###############################################################################
+# Special Theme settings:
+
+THEME_HEADERPICTURE = SITEURL + '/images/header_photo.jpg'
+
+THEME_CATEGORIES = {
+    'category_1': {
+        'description': 'Description for category 1',
+        'logo': SITEURL + '/category_1/logo.png',
+        'thumbnail': 'https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e002152/GSFC_20171208_Archive_e002152~orig.jpg',
+    },
+    'category_2': {
+        'description': 'Description for category 2'
+    }
+}
+
+
+
+THEME_AUTHORS = {
+    'Jean Dupont': {
+        'description': """
+            Description of the author Jean Dupont
+        """,
+        'cover': 'https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e002152/GSFC_20171208_Archive_e002152~orig.jpg',
+        'image': SITEURL + '/images/jean.jpg',
+        'links': (('github', 'https://github.com/otso-andersen'),),
+    },
+    'Alice Dubois': {
+        'description': """
+            Description of the author Alice Dubois
+        """,
+        'cover': 'https://images-assets.nasa.gov/image/GSFC_20171208_Archive_e002152/GSFC_20171208_Archive_e002152~orig.jpg',
+        'image': SITEURL + '/images/alice.jpg',
+        'links': (('github', 'https://github.com/otso-andersen'),),
+    }
+}
 ```
 
-### 2. Publish on GitHub Pages
-
-For more information on this process, see [how to publish on GitHub](http://docs.getpelican.com/en/stable/tips.html#publishing-to-github) and [GitHub Pages](https://pages.github.com/).
+### 2. Pushing the output directory to GitHub
 
 We use [ghp-import](https://github.com/davisp/ghp-import) to automatically add commits using the output folder:
 
