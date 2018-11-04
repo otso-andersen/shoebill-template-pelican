@@ -2,6 +2,7 @@
 This is a template website using [Pelican](http://docs.getpelican.com/en/stable/index.html). You can get it working, make it your own and publish it in less than an hour.
 
 See the demo [here](https://otso-andersen.github.io/shoebill-template-pelican/).
+To test a password protected page, go to [this encrypted article](https://otso-andersen.github.io/shoebill-template-pelican/drafts/protected-one_encrypted.html) and enter the password `1234`.
 
 ![screenshot](screenshot_shoebill.png)
 
