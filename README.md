@@ -17,16 +17,18 @@ First, choose a name for your project, create an appropriately-named directory f
 ```bash
 mkdir -p ~/path_to_my_folder
 cd ~/path_to_my_folder
-git clone https://github.com/otso-andersen/website.git
+git clone https://github.com/otso-andersen/shoebill-template-pelican.git
 ```
 
 ### 2. Virtual environment:
 
-Run the following command in your preferred terminal, prefixing with sudo if permissions warrant:
-
 ```bash
-sudo apt-get install git
-sudo apt-get install python-pip
+sudo pip install virtualenv
+```
+Then
+```bash
+virtualenv .
+source bin/activate
 ```
 
 ### 3. Install the requirements (Pelican, Markdown and plugins requirements):
@@ -34,7 +36,10 @@ sudo apt-get install python-pip
 ```bash
 pip install pelican markdown
 ```
-
+`TODO`:
+```bash
+pip install -r requirements.txt
+```
 
 ### 4. Generate the site:
 
