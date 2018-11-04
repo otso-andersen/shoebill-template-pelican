@@ -1,0 +1,60 @@
+{% extends "base.html" %}
+{% block title %}{{ SITENAME }} - {{ author }}{% endblock %}
+{% block content %}
+<div class="container author-page-header text-center">
+    
+    {% if AUTHORS.get(author|string).cover %}
+    <div class="cover" style="background-image: url({{SITEURL}}/{{STATIC_IMAGES_FOLDER}}/{{ AUTHORS.get(author|string).cover }})"></div>
+    {% endif %}
+    {% if AUTHORS.get(author|string).image %}
+    <div class="avatar{% if not AUTHORS.get(author|string).cover %}-no-cover{% endif %}">
+        <img src="{{SITEURL}}/{{STATIC_IMAGES_FOLDER}}/{{ AUTHORS.get(author|string).image}}" alt="{{ author|striptags }}">
+    </div>
+    {% endif %}
+    <div class="author-profile">
+        <h1>{{ author }}</h1>
+        <p class="author-description">
+            {{ AUTHORS.get(author|string).description }}
+        </p>
+        <ul class="author-links">
+            {% for icon, link in AUTHORS.get(author|string).links %}
+            <li><a href="{{ link }}"><i class="fab fa-{{ icon }}"></i></a>
+            {% endfor %}
+        </ul>
+    </div>
+    
+</div>
+
+<div class="author-page-divider text-center">
+    <span>Latest Posts</span>
+</div>
+
+
+<div class="container main-container mt-5">
+    <div class="pure-g">
+        <div class="pure-u-1">
+            <div class="posts-center-list">
+                
+                    {% for article in articles_page.object_list %}
+                        {% if loop.index % 3 == 1 %}
+                            <div class="row">
+                            {% endif %}
+                            <div class="col-md-4 d-flex align-items-stretch">
+                                {% include "includes/post_small.html" %}
+                            </div>
+                            {% if loop.index % 3 == 0 %}
+                            </div>
+                        {% endif %}
+                    {% endfor %}
+                
+                    {% if articles_page.object_list|length % 3 == 1 or articles_page.object_list|length % 3 == 2 %}
+                        </div>
+                    {% endif %}
+
+            </div>
+            {% include "pagination.html" %}
+        </div>
+    </div>
+</div>
+
+{% endblock content %}

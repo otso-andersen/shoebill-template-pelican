@@ -1,0 +1,89 @@
+{% extends "base.html" %}
+{% block title %}{{ page.title|striptags }}{% endblock %}
+{% block content %}
+<div class="page-container">
+    <div class="article-content">
+            <div class="article__metadata d-flex">
+            {% import 'translations.html' as translations with context %}
+            {{ translations.translations_for(page) }}
+        </div>
+    </div>
+
+    <div class="article-header-container">
+        <div class="background-image-container">
+
+            {# title with cover #}
+            {% if page.photo_image  %}
+            <div class="background-image" style="background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url({{ SITEURL }}/{{ page.photo_image[1] }});">
+                <img src="{{ SITEURL }}/{{ page.photo_image[1] }}" alt="{{ page.title|striptags }}">
+                <div class="title">
+                <h1>
+                    {{ page.title }}
+                </h1>
+                {% if page.subtitle %}
+                <h2>
+                    {{ page.subtitle }}
+                </h2>
+                {% endif %}
+                </div>
+            </div>
+            {# title with no cover #}
+            {% else %}
+            <div class="background-image-small">
+                <div class="title-container">
+                    <h1>{{ page.title }}</h1>
+                    {% if page.subtitle %}
+                    <h4>{{ page.subtitle }}</h4>
+                    {% endif %}
+                </div>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+
+    <div class="article-content">
+        <div class="wrapper">
+        {{ page.content }}
+        </div>
+    </div>
+
+
+    <div class= "container">
+    <footer>
+        
+        <div class="row article__author__category">
+            {% if DISPLAY_AUTHORS and page.authors %}
+            <div class="col-12 col-md-6 mx-auto">
+                {% for author in page.authors %}
+                <div class="d-flex poster-info">
+                    {% if author|string in AUTHORS %}
+                    <div class="align-self-center">
+                        <a href="{{ SITEURL }}/{{ author.url }}"><img src="{{SITEURL}}/{{STATIC_IMAGES_FOLDER}}/{{ AUTHORS.get(author|string).image }}" alt=""></a>
+                    </div>
+                    {% endif %}
+                    <div class="align-self-center">
+                        <h3 class="author-name"><a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a></h3>
+                        <p class="author-description">
+                          {% if AUTHORS %}
+                          {{ AUTHORS.get(author|string).description }}
+                          {% endif %}
+                        </p>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+            {% endif %}
+
+        </div>
+
+
+    </footer>
+
+</div>
+</div>
+
+{% endblock %}
+
+
+
+

@@ -1,0 +1,42 @@
+<div class="card mb-5 w-100 border-bottom border-right-0 border-left-0 border-top-0 rounded-0">
+        <div class="card-header bg-transparent border-0">
+            <div class="d-flex">
+            <span class="text-muted small">
+                {{ article.locale_date }}
+                {% if DISPLAY_AUTHORS %}
+                , by
+                {% for author in article.authors %}
+                {{",&nbsp;" if not loop.last and not loop.first}}{{" and &nbsp;" if loop.last and not loop.first}}<a href="{{ SITEURL }}/{{ author.url }}" class="author">{{author}}</a>
+                {% endfor %}
+                {% endif %}
+            </span>
+            {% if article.share_post and article.status != 'draft' %}
+            <div class="ml-auto small">
+                    <a href="{{article.share_post['twitter']}}" target="_blank" title="Share on Twitter"><i class="fab fa-twitter"></i></a>
+                    &nbsp;
+                    <a href="{{article.share_post['facebook']}}" target="_blank" title="Share on Facebook"><i class="fab fa-facebook-f"></i></a>
+            </div>
+            {% endif %}
+            </div>
+            {% if article.pin %}<div class="ml-auto text-warning"><i class="fas fa-bookmark"></i></div>{% endif %}
+            
+        </div>
+        
+        <div class="card-body p-0 pt-3">
+        <h5 class="card-title text-center"><a class="text-dark" href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h5>
+        
+        <div class="card-text article-content">
+            {{ article.summary }}
+        </div>
+        </div>
+        <div class="card-footer bg-transparent border-0 text-center pb-5">
+            {% import 'translations.html' as translations with context %}
+            {{ translations.translations_for(article) }}
+            {% if article.content|wordcount > SUMMARY_MAX_LENGTH %}
+            <a class="btn btn-outline-dark" href="{{ SITEURL }}/{{ article.url }}">Continue reading</a>
+            <div class="progress mt-2 w-25 mx-auto" style="height: 10px;">
+                    <div class="progress-bar bg-dark" role="progressbar" style="width: {{SUMMARY_MAX_LENGTH / article.content|wordcount * 100}}%" aria-valuenow="{{SUMMARY_MAX_LENGTH / article.content|wordcount * 100}}" aria-valuemin="0" aria-valuemax="100"></div>
+            </div>
+            {% endif %}
+        </div>
+    </div>

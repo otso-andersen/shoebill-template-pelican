@@ -1,0 +1,61 @@
+
+{% for article in articles_page.object_list %}
+    {% if not article.banner or HOME_BANNER %}
+        {% if tag or articles_page.number != 1 %}
+
+            {% if loop.index % 3 == 1 %}
+            <div class="row">
+            {% endif %}
+            <div class="col-md-4 d-flex align-items-stretch">
+                {% include "includes/post_small.html" %}
+            </div>
+            {% if loop.index % 3 == 0 %}
+            </div>
+            {% endif %}
+
+        {% else %}
+            {% if loop.index < 3 %}
+
+                {% if loop.index == 1 %}
+                <div class="row">
+                {% endif %}
+                <div class="col-sm-6 d-flex align-items-stretch">
+                    {% include "includes/post_medium.html" %}   
+                </div>
+                {% if loop.index == 2 %}
+                </div>
+                {% endif %}
+
+            {% else %}
+
+                {% if loop.index % 3 == 0 %}
+                <div class="row">
+                {% endif %}
+                <div class="col-md-4 d-flex align-items-stretch">
+                    {% include "includes/post_small.html" %}
+                </div>
+                {% if loop.index % 3 == 2 %}
+                </div>
+                {% endif %}
+
+            {% endif %}
+
+        {% endif %}
+
+        
+
+    {% endif %}
+{% endfor %}
+
+{% if tag or articles_page.number != 1 %}
+    {% if articles_page.object_list|length % 3 == 1 or articles_page.object_list|length % 3 == 2 %}
+    </div>
+    {% endif %}
+{% else %}
+    {% if articles_page.object_list|length % 3 == 0 or articles_page.object_list|length % 3 == 1 %}
+    </div>
+    {% endif %}
+{% endif %}
+
+    
+

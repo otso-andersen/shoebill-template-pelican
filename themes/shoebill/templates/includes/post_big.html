@@ -1,0 +1,42 @@
+<div class="row mb-5">
+        <div class="col-sm-8">
+            <div class="card border-0">
+                
+                    {% if article.photo_image %}
+                    <a href="{{ SITEURL }}/{{ article.url }}" class="card__img__container">
+                    <div class="card__img" style="background:url({{ SITEURL }}/{{ article.photo_image[1] }})"></div>
+                    </a>
+                    {% else %}
+                    <a href="{{ SITEURL }}/{{ article.url }}" class="card__img__container {% if article.pin %}bg-warning{% else %}bg-dark{% endif %}">
+                        <div class="card__img"></div>
+                        <span class="placeholder__text {% if article.pin %}text-dark{% endif %}">{{ article.title | truncate(10, False, '')}}</span>
+                    </a>
+                    {% endif %}
+            </div>
+        </div>
+        <div class="col-sm-4 d-flex">
+            <div class="card border-0 w-100">
+                    <div class="card-body p-0">
+                        {% if article.pin %}<div class="ml-auto text-warning"><i class="fas fa-bookmark"></i></div>{% endif %}
+                        <div class="mb-1 text-muted small">{{article.lang}} &mdash; {{ article.locale_date }}</div>
+                        <h2 class="card-title"><a class="text-dark" href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h2>
+                        <div class="card-subtitle mb-2 text-muted small">
+                            {% if DISPLAY_AUTHORS %}
+                            By
+                            {% for author in article.authors %}
+                            {{",&nbsp;" if not loop.last and not loop.first}}{{" and &nbsp;" if loop.last and not loop.first}}<a href="{{ SITEURL }}/{{ author.url }}" class="author">{{author}}</a>
+                            {% endfor %}
+                            {% endif %}
+                        </div>
+                        {% if article.cooking_time %}<div class="mb-1 text-dark"><i class="far fa-clock"></i> {{article.cooking_time}}</div>{% endif %}
+                        {% if article.readtime_minutes %}<div class="mb-1 text-dark">{{ article.readtime_minutes }} min read</div>{% endif %}
+                        
+                            <div class="card-text mb-auto remove-text-style">{{article.summary|truncate(200, False)}}</div>
+
+                        </div>
+                        <div class="card-footer pl-0 bg-transparent border-bottom border-top-0 rounded-0 text-dark">
+                            <a class="btn btn-outline-dark float-right" href="{{ SITEURL }}/{{ article.url }}">Read more</a>
+                        </div>
+            </div>  
+        </div>
+    </div>

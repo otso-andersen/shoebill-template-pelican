@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% if tag %}
+<div class="container">
+    <h3 class="pb-3 mb-4 border-bottom">Tagged in <span class="font-italic">{{tag}}</span></h3>
+</div>
+{% endif %}
+
+<!-- Banner -->
+<div class="container">
+{% include "includes/banner.html" %}
+</div>
+
+<!-- Tags -->
+<div class="container text-center mx-auto m-3">
+        {% for tag, null in tags %}
+        <a class="badge badge-pill badge-secondary" href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+        {% endfor %}
+</div>
+
+<!-- List of posts -->
+<div class="author-page-divider text-center mb-5">
+        <span>Latest Posts</span>
+</div>
+<div class="container">
+{% include "includes/post_grid_home.html" %}
+</div>
+
+<!-- Pagination -->
+<div class="container">
+{% include "pagination.html" %}
+</div>
+
+
+
+
+{% endblock content %}
+    
+ 

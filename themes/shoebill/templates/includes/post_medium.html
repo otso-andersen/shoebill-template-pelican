@@ -1,0 +1,36 @@
+<div class="card border-0 mb-4 w-100">
+        <div class="card-header bg-transparent border-0 p-0 pb-1">
+            <div class="d-flex">
+            {% include "includes/post_metadata.html" %}
+            {% if article.pin %}<div class="ml-auto text-warning"><i class="fas fa-bookmark"></i></div>{% endif %}
+            </div>
+        </div>
+        
+        {% if article.photo_image %}
+        <a href="{{ SITEURL }}/{{ article.url }}" class="card__img__container">
+        <div class="card__img" style="background:url({{ SITEURL }}/{{ article.photo_image[1] }})"></div>
+        </a>
+        {% else %}
+        <a href="{{ SITEURL }}/{{ article.url }}" class="card__img__container {% if article.pin %}bg-warning{% else %}bg-dark{% endif %}">
+            <div class="card__img"></div>
+            <span class="placeholder__text {% if article.pin %}text-dark{% endif %}">{{ article.title | truncate(10, False, '')}}</span>
+        </a>
+        {% endif %}
+        
+        <div class="card-body p-0 pt-2">
+        <h3 class="card-title"><a class="text-dark" href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h3>
+        <div class="card-subtitle mb-2 text-muted small">
+            {% if DISPLAY_AUTHORS %}
+            By
+            {% for author in article.authors %}
+            {{",&nbsp;" if not loop.last and not loop.first}}{{" and &nbsp;" if loop.last and not loop.first}}<a href="{{ SITEURL }}/{{ author.url }}" class="author">{{author}}</a>
+            {% endfor %}
+            {% endif %}
+        </div>
+        
+        <div class="card-text small remove-text-style">{{ article.summary|truncate(200, False) }}</div>
+        </div>
+        <div class="card-footer pl-0 bg-transparent border-bottom border-top-0 rounded-0 text-dark">
+            <a class="btn btn-outline-dark float-right" href="{{ SITEURL }}/{{ article.url }}">Read more</a>
+        </div>
+    </div>

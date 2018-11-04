@@ -1,10 +1,13 @@
 Title: About
+Status: hidden
 
 This is a template website, using [Pelican](http://docs.getpelican.com/en/3.6.3/index.html).
 
-Code is available on the GitHub [repository](https://github.com/otso-andersen/website-template-pelican)
+Code is available on the GitHub [repository](https://github.com/otso-andersen/shoebill-template-pelican)
 
-Photo on homepage by Philipp Wüthrich on [Unsplash](https://unsplash.com/photos/jz7AZ0dgxwE).
+Photo on homepage by Ken Yam on [Unsplash](https://unsplash.com/photos/envKxbTUKh8).
+
+Pictures on the Photography album are from a collection on [Unspalsh](https://unsplash.com/collections/3356534/collection-194-unsplash-archive).
 
 The picture profile of Jean Dupont is from the [Met Collections](https://www.metmuseum.org/art/collection/search/435888?searchField=All&amp;sortBy=relevance&amp;deptids=11&amp;high=on&amp;ft=*&amp;offset=0&amp;rpp=20&amp;pos=8).
 

@@ -8,6 +8,10 @@ OUTPUTDIR=$(BASEDIR)/output
 CONFFILE=$(BASEDIR)/pelicanconf.py
 PUBLISHCONF=$(BASEDIR)/publishconf.py
 
+PASSWORD = 1234
+THEMEDIR = $(BASEDIR)/themes/shoebill
+PASSWORDTEMPLATE = $(THEMEDIR)/templates/includes/password_template.html
+
 FTP_HOST=localhost
 FTP_USER=anonymous
 FTP_TARGET_DIR=/
@@ -98,6 +102,8 @@ stopserver:
 
 publish:
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
+	find $(OUTPUTDIR)/drafts/ -type f -name "*.html" -exec staticrypt -f $(PASSWORDTEMPLATE) {} $(PASSWORD) \;
+	find $(OUTPUTDIR)/drafts/ -type f -not -name '*encrypted.html' -delete
 
 ssh_upload: publish
 	scp -P $(SSH_PORT) -r $(OUTPUTDIR)/* $(SSH_USER)@$(SSH_HOST):$(SSH_TARGET_DIR)

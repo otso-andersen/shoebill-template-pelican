@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+{% block title %}{{ category|striptags }}{% endblock %}
+{% block content %}
+
+<div class="container container__category">
+    <div class="category-logo">
+        {% if category|string in CATEGORIES and CATEGORIES.get(category|string).logo %}
+        <a href="{{ SITEURL }}/{{ category.url }}" rel="bookmark" title="Permalink to {{ category|striptags }}"><img src="{{SITEURL}}/{{STATIC_IMAGES_FOLDER}}/{{ CATEGORIES.get(category|string).logo }}" alt="{{ category|striptags }}"/></a>
+        {% endif %}
+        <h1><a href="{{ SITEURL }}/{{ category.url }}" rel="bookmark" title="Permalink to {{ category|striptags }}">{{ category }}</a></h1>
+        <h6 class="text-muted font-italic">{{ CATEGORIES.get(category|string).description }}</h6>
+    </div>
+
+    <div class="author-page-divider text-center mb-5">
+            <span>Latest Posts</span>
+    </div>
+
+    {% if CATEGORIES.get(category|string).list_template %}
+        <!-- Posts list-->
+        {% include "includes/post_list.html" %}
+    {% else %}
+    <!-- Posts grid -->
+    {% include "includes/post_grid.html" %}
+    {% endif %}
+    <!-- Pagination -->
+    {% include "pagination.html" %}
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,18 @@
+
+        {% if article.category|string in CATEGORIES and CATEGORIES.get(article.category|string).logo %}
+        <div class="align-self-center">
+            <img src="{{SITEURL}}/{{STATIC_IMAGES_FOLDER}}/{{ CATEGORIES.get(article.category|string).logo }}" class="metadata__category__logo--sm">
+        </div>
+        {% endif %}
+        <div class="metadata text-muted">
+            <a href="{{ SITEURL }}/{{ article.category.url }}" class="category">{{ article.category }}</a>
+            {% if article.cooking_time %}&nbsp;<i class="far fa-clock"></i> {{article.cooking_time}}{% endif %}
+            <br />
+        
+            <a>{{article.lang}}</a>
+            &mdash; <a>{{ article.locale_date }}</a>
+            {% if article.readtime_minutes %}
+            &mdash; {{ article.readtime_minutes }} min read
+            {% endif %}
+        </div>
+

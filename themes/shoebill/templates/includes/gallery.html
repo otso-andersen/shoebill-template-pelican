@@ -1,0 +1,11 @@
+<div class="container gallery">
+        {% for title, gallery in article.photo_gallery %}
+            <h1>{{ title }}</h1>
+            <p class="small text-muted text-center font-italic">click on the pictures to view on gallery mode</p>
+            <div class="container masonry">
+                {% for name, photo, thumb, exif, caption in gallery %}
+                        <div class="image"><a href="{{ SITEURL }}/{{ photo }}" title="{{ name }}" exif="{{ exif }}" caption="{{ caption }}"><img class="img-fluid" src="{{ SITEURL }}/{% if PHOTO_THUMB == (0, 0, 0)%}{{ photo }}{% else %}{{ thumb }}{% endif %}"></a></div>
+                {% endfor %}
+            </div>
+        {% endfor %}
+</div>

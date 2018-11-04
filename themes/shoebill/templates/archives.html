@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container page-container">
+
+    <div class="entry-content mb-4">
+
+        <h1>Archives</h1>
+
+        <div class="list-group list-unstyled col-md-6 p-0 mx-md-auto">
+        {% for article in dates %}
+        <a href="{{ SITEURL }}/{{ article.url }}" class="list-group-item list-group-item-action rounded-0">
+            {{ article.title }} <span class="text-muted small">&mdash; {{ article.locale_date }}</span>
+        </a>
+        {% endfor %}
+    </div>
+
+    </div>
+
+</div>
+{% endblock %}

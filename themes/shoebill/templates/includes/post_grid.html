@@ -1,0 +1,35 @@
+
+    {% for article in articles_page.object_list %}
+    {% if loop.index0 == 0 and not tag and articles_page.number == 1 %}
+    {% include "includes/post_big.html" %}
+    {% elif loop.index0 < 3 and not tag and articles_page.number == 1 %}
+        {% if loop.index0 == 1 %}
+        <div class="row">
+        {% endif %}
+
+        <div class="col-sm-6 d-flex align-items-stretch">
+            {% include "includes/post_medium.html" %}   
+        </div>
+
+        {% if loop.index0 == 2 %}
+        </div>
+        {% endif %}
+    {% else %}
+        {% if loop.index0 % 3 == 0 %}
+        <div class="row">
+        {% endif %}
+
+        <div class="col-md-4 d-flex align-items-stretch">
+            {% include "includes/post_small.html" %}
+        </div>
+
+        {% if loop.index0 % 3 == 2 %}
+        </div>
+        {% endif %}
+    {% endif %}
+    
+    {% endfor %}
+
+    {% if articles_page.object_list|length % 3 != 0 %}
+    </div>
+    {% endif %}
