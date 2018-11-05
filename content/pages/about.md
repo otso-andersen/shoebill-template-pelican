@@ -7,7 +7,7 @@ Code is available on the GitHub [repository](https://github.com/otso-andersen/sh
 
 Photo on homepage by Ken Yam on [Unsplash](https://unsplash.com/photos/envKxbTUKh8).
 
-Pictures on the Photography album are from a collection on [Unspalsh](https://unsplash.com/collections/3356534/collection-194-unsplash-archive).
+Pictures on the Autumn album are from a collection on [Unsplash](https://unsplash.com/collections/3356534/collection-194-unsplash-archive).
 
 The picture profile of Jean Dupont is from the [Met Collections](https://www.metmuseum.org/art/collection/search/435888?searchField=All&amp;sortBy=relevance&amp;deptids=11&amp;high=on&amp;ft=*&amp;offset=0&amp;rpp=20&amp;pos=8).
 
