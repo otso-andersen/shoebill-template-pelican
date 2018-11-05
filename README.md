@@ -1,6 +1,11 @@
 # Template Static Website
 This is a template website using [Pelican](http://docs.getpelican.com/en/stable/index.html). You can get it working, make it your own and publish it in less than an hour.
 
+Main features are:
+* Articles on a category page can either be displayed with a grid or a list
+* Drafts are password protected
+* 
+
 See the demo [here](https://otso-andersen.github.io/shoebill-template-pelican/).  
 To test a password protected page, go to [this encrypted article](https://otso-andersen.github.io/shoebill-template-pelican/drafts/protected-one_encrypted.html) and enter the password `1234`.
 
@@ -321,18 +326,12 @@ This only publishes the generated output folder of your website. In particular, 
 
 ## Other Dependencies
 
-* Bootstraps
+* Bootstraps 4
 * Magnific Popup
-* Fontawesome
+* Fontawesome 5
 * crypto-js
 
-## Notes
 
-The Shoebill theme has been influenced by [Medius](https://github.com/onur/medius) (MIT license).
-
-## License
-
-Uses the MIT license.
 
 
 
