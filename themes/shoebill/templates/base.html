@@ -117,8 +117,10 @@
         {% endfor %}
         {% endif %}
         <a href="{{ SITEURL }}/{{ ARCHIVES_URL | default('archives.html') }}"><i class="fas fa-list"></i><span class="icon-label"></span> archives</span></a>
-        <p>© {{CURRENTYEAR}} for the content</p>
+        <p>© {{CURRENTYEAR}} {{AUTHOR}}</p>
+        {% comment %}
         <p>code under MIT license, available on <a target="_blank" href="https://github.com/otso-andersen/website-template-pelican"><i class="fab fa-github"> </i> GitHub</a></p>
+        {% endcomment %}
     </footer>
 
     {% include "analytics.html" %}
