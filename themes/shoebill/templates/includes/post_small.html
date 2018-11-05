@@ -12,11 +12,11 @@
         {% else %}
         <a href="{{ SITEURL }}/{{ article.url }}" class="card__img__container {% if article.pin %}bg-warning{% else %}bg-dark{% endif %}">
             <div class="card__img card__img--sm"></div>
-            <span class="placeholder__text {% if article.pin %}text-dark{% endif %}">{{ article.title | striptags | truncate(7, False,'',5) }}</span>
+            <span class="placeholder__text {% if article.pin %}text-dark{% endif %}">{{article.title|replace('&nbsp;',' ')}}</span>
         </a>
         {% endif %}
         <div class="card-body p-0 pt-2">
-        <h5 class="card-title"><a class="text-dark" href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a></h5>
+        <h5 class="card-title"><a class="text-dark" href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">{{article.title }}</a></h5>
         <div class="card-subtitle mb-2 text-muted small">
             {% if DISPLAY_AUTHORS %}
             By

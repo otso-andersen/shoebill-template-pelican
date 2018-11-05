@@ -3,13 +3,29 @@
             <div class="pure-u-1">
                 <div class="posts-center-list">
                  
-                        {% for article in articles_page.object_list %}
-                    
+                    {% for article in articles_page.object_list |selectattr("pin") %}
+                        {% if loop.first %}
+                            <div class="author-page-divider text-center mb-5">
+                                    <span>Pinned Posts</span>
+                            </div>  
+                        {% endif %}
                         <div class="w-100">
                             {% include "includes/post_list_item.html" %}
                         </div>
-                  
-                        {% endfor %}
+                    
+                    {% endfor %}
+
+                    {% for article in articles_page.object_list |selectattr("pin", "undefined") %}
+                        {% if loop.first %}
+                                <div class="author-page-divider text-center mb-5">
+                                        <span>Latest Posts</span>
+                                </div>  
+                        {% endif %}
+                        <div class="w-100">
+                            {% include "includes/post_list_item.html" %}
+                        </div>
+                
+                    {% endfor %}
                     
                 </div>
                 

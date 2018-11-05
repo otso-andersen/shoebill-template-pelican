@@ -9,7 +9,7 @@ CURRENTYEAR = date.today().year
 
 AUTHOR = u'Shoebill Pelican'
 SITENAME = u'shoebill'
-SITEURL = ''
+SITEURL = 'http://localhost:8000'
 
 
 # By default, new articles will be drafts. To publish them, add [Status: published] to its .md

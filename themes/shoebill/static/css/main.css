@@ -18,6 +18,11 @@ h1, h2, h3, h4, h5, h6 {
     /*font-family: "Playfair Display", Georgia, "Times New Roman", serif;*/
     word-wrap: normal;
 }
+/* Change selection color */
+::selection {
+    background-color: #343a40;
+    color: #fff;
+}
 /* Font for the website title */
 .site-header-logo {
     font-family: 'Libre Baskerville', serif;
@@ -174,8 +179,8 @@ div.card-header a{
 /*************
 /************* cards **************/
 
-  .card-img-top {
-    border-radius: 0 !important;
+  .card img {
+    max-width: 100%;
   }
   
   .card__img__container  {
@@ -256,10 +261,13 @@ div.card-header a{
 Placeholder images 
 */
 .placeholder__text {
-position: absolute !important;
-bottom: 20px !important;
-right: 30px !important;
-color: #AB9143;
+    position: absolute !important;
+    bottom: 15px !important;
+    right: 25px !important;
+    color: #AB9143;
+    max-width: 80%;
+    text-align: right;
+    max-height: 100%;
 }
 
 

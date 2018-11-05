@@ -146,7 +146,7 @@ To add your image to your article, link to it where you want it to appear inside
 ### 4. Drafts
 
 Drafts are article with the metadata `Status: draft`.
-Put all your drafts inside a folder `content/encrypted`. This way they will all be password protected. This uses [Staticrypt](https://www.npmjs.com/package/staticrypt).
+Your drafts will all be password protected and can be accessed via the URL `SITEURL/drafts/name_encrypted.html`. This uses [Staticrypt](https://www.npmjs.com/package/staticrypt).
 
 Change the password inside the Makefile:
 ```bash

@@ -1,35 +1,55 @@
+{% if not tag and articles_page.number == 1 %}
 
-    {% for article in articles_page.object_list %}
-    {% if loop.index0 == 0 and not tag and articles_page.number == 1 %}
-    {% include "includes/post_big.html" %}
-    {% elif loop.index0 < 3 and not tag and articles_page.number == 1 %}
-        {% if loop.index0 == 1 %}
-        <div class="row">
-        {% endif %}
-
-        <div class="col-sm-6 d-flex align-items-stretch">
-            {% include "includes/post_medium.html" %}   
-        </div>
-
-        {% if loop.index0 == 2 %}
-        </div>
-        {% endif %}
-    {% else %}
-        {% if loop.index0 % 3 == 0 %}
-        <div class="row">
-        {% endif %}
-
-        <div class="col-md-4 d-flex align-items-stretch">
-            {% include "includes/post_small.html" %}
-        </div>
-
-        {% if loop.index0 % 3 == 2 %}
-        </div>
-        {% endif %}
-    {% endif %}
-    
+    {% for article in articles_page.object_list|selectattr("pin") %}
+        
+            {% if loop.index0 == 0  %}
+                <div class="author-page-divider text-center mb-5">
+                        <span>Pinned Posts</span>
+                </div>   
+                {% include "includes/post_big.html" %}
+            {% elif loop.index0 > 0  %}
+                {% if loop.index0 == 1 %}
+                <div class="row">
+                {% endif %}
+            
+                <div class="col-sm-6 d-flex align-items-stretch mx-auto">
+                    {% include "includes/post_medium.html" %}   
+                </div>
+            
+                {% if loop.index0 == 2 %}
+                </div>
+                {% endif %}
+            {% endif %}
+            {% if loop.last and loop.length % 2 !=0 %} 
+            </div>
+            {% endif %}   
     {% endfor %}
 
-    {% if articles_page.object_list|length % 3 != 0 %}
+{% endif %}
+    
+    
+{% for article in articles_page.object_list |selectattr("pin", "undefined")%}
+    {% if loop.first %}
+        <div class="author-page-divider text-center mb-5">
+                <span>Latest Posts</span>
+        </div>  
+    {% endif %}
+
+    {% if loop.index % 3 == 1 %}
+    <div class="row">
+    {% endif %}
+
+    <div class="col-md-4 d-flex align-items-stretch">
+        {% include "includes/post_small.html" %}
+    </div>
+
+    {% if loop.index % 3 == 0 %}
     </div>
     {% endif %}
+
+    {% if loop.last and (loop.length % 3 != 1 or loop.length % 3 != 2) %}
+    </div>
+    {% endif %}
+
+{% endfor %}
+
