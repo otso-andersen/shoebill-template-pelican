@@ -40,10 +40,6 @@ source bin/activate
 ### 3. Install the requirements (Pelican, Markdown and plugins requirements):
 
 ```bash
-pip install pelican markdown
-```
-`TODO`:
-```bash
 pip install -r requirements.txt
 ```
 
