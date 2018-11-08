@@ -44,9 +44,14 @@ source bin/activate
 
 ### 3. Install the requirements (Pelican, Markdown and plugins requirements)
 
+1. Python requirements
 ```bash
 pip install -r requirements.txt
 ```
+
+2. Node
+
+Node is necessary to run `staticrypt`. Without it the website would still be generated but you wouldn't be able to access your drafts. Go to [nodejs.org](https://nodejs.org) to install it.
 
 ### 4. Generate the site
 

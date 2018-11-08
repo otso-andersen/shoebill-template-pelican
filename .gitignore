@@ -5,5 +5,3 @@ output/
 lib/
 bin/
 include/
-pip-selfcheck.json
-.DS_Store
