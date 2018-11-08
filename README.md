@@ -350,9 +350,12 @@ This only publishes the generated output folder of your website. In particular, 
 
 ### Python dependencies
 
+* Pelican
+* Markdown
 * Beautifulsoup4
 * Pillow
 * Typogrify
+* ghp-import
 
 ### Other Dependencies
 
