@@ -102,7 +102,7 @@ stopserver:
 
 publish:
 	$(PELICAN) $(INPUTDIR) -o $(OUTPUTDIR) -s $(PUBLISHCONF) $(PELICANOPTS)
-	find $(OUTPUTDIR)/drafts/ -type f -name "*.html" -exec staticrypt -f $(PASSWORDTEMPLATE) {} $(PASSWORD) \;
+	find $(OUTPUTDIR)/drafts/ -type f -name "*.html" -exec node staticrypt -f $(PASSWORDTEMPLATE) {} $(PASSWORD) \;
 	find $(OUTPUTDIR)/drafts/ -type f -not -name '*encrypted.html' -delete
 
 ssh_upload: publish
