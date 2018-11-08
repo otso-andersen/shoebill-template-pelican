@@ -158,7 +158,6 @@ AUTHORS = {
     # Summary
     # Authors: Author 1, Author 2, Author 3
     # Lang: fr (language of the article, default to english)
-    # Password: 1234
     # Date: yyyy-mm-dd (date of creation)
     # Modified: yyyy-mm-dd (date of modification)
     # Gallery: {photo}folder (add the gallery with the photos inside folder)

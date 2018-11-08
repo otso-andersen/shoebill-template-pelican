@@ -1,8 +1,5 @@
-@import url(https://fonts.googleapis.com/css?family=Playfair+Display:700,900);
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:300,400,700&subset=latin,latin-ext);
-@import url(https://fonts.googleapis.com/css?family=Merriweather:400,300,300italic,400italic&subset=latin,latin-ext);
-@import url(https://fonts.googleapis.com/css?family=Montserrat);
-@import url('https://fonts.googleapis.com/css?family=Cormorant+Garamond|Libre+Baskerville|Vollkorn');
+@import url(https://fonts.googleapis.com/css?family=Montserrat|Libre+Baskerville);
 
 /***************************************************************************
 Colors and font
@@ -16,7 +13,9 @@ Colors and font
 h1, h2, h3, h4, h5, h6 {
     font-family: 'Libre Baskerville', serif;
     /*font-family: "Playfair Display", Georgia, "Times New Roman", serif;*/
-    word-wrap: normal;
+}
+body {
+    font-family: 'Open Sans', -apple-system, sans-serif;
 }
 /* Change selection color */
 ::selection {
@@ -37,9 +36,6 @@ div.article-content {
 }
 /* Font for the title of sections inside an article */
 div.article-content h1, div.article-content h2, div.article-content h3, div.article-content h4, div.article-content h5, div.article-content h6 {
-    /*font-family: 'Libre Baskerville', serif;*/
-}
-div.article-content h1, div.article-content h2, div.article-content h3, div.article-content h4, div.article-content h5, div.article-content h6 {
     font-weight: normal; }
   div.article-content h1, div.article-content h2 {
     font-size: 36px; }
@@ -54,7 +50,7 @@ div.article-content h1, div.article-content h2, div.article-content h3, div.arti
 
 /* Font for the placeholder on the article thumbnails */
 .placeholder__text {
-    font-family: Merriweather;
+    font-family: 'Libre Baskerville';
     font-size: 200%;
 }
     @media screen and (min-width: 40.063em) {
