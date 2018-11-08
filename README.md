@@ -53,45 +53,41 @@ pip install -r requirements.txt
 
 Node is necessary to run `staticrypt`. Without it the website would still be generated but you wouldn't be able to access your drafts. Go to [nodejs.org](https://nodejs.org) to install it.
 
-### 4. Generate the site
-
-From your site directory, run the `pelican` command to generate your site:
+Then do
 
 ```bash
-pelican content
+npm install staticrypt
 ```
 
-This create a folder `output` with the generated website.
+### 4. Generate the site
 
-Alternatively, you can use the `make` command:
+From your site directory, run this command to generate your site:
 
-```bashrc
-make html
+```bash
+make publish
 ```
 
 ### 5. Preview your site
 
-Open a new terminal session and run the following commands to switch to your output directory and launch Pelican’s web server:
+To launch Pelican's web server and have Pelican automatically regenerate your site every time a change is detected (which is handy when testing locally), open a new terminal session and run the following command
 
 ```bash
-cd ~/path_to_my_folder/website/output
-python -m pelican.server
-
-```
-
-Preview your site by navigating to http://localhost:8000/ in your browser.
-
-If you’d prefer to have Pelican automatically regenerate your site every time a change is detected (which is handy when testing locally), the best way is to use the following `make` command instead:
-
-```bashrc
 make devserver
 ```
 
 The above command will simultaneously run Pelican in regeneration mode as well as serve the output at http://localhost:8000. Once you are done testing your changes, you should stop the development server via (after `ctrl+C`):
 
-```bashrc
+```bash
 make serverstop
 ```
+
+If you do not want your website to be automatically regenerated, do this instead:
+
+```bash
+cd ~/path_to_my_folder/website/output
+python -m pelican.server
+```
+
 
 ## II) How to write content
 
